@@ -60,19 +60,19 @@ void dijkstra(int s){
 	for(int i = 1; i <= n; i++) cout << d[i] << ' ';
 }
  
-void bellmanFord(int n, int start){
-	vt<int> d(n + 1, INF);
-	d[start] = 0;
-	fo(k, 1, n-1){
-		foE(u, 1, n){
-			fo(j, 0, adj[u].size){
-				int v = adj[u][j].v;
-				int w = adj[u][j].w;
-				d[v] = min(d[v], w + d[u]);
-			}
-		}
-	}
-}
+// void bellmanFord(int n, int start){
+// 	vt<int> d(n + 1, INF);
+// 	d[start] = 0;
+// 	fo(k, 1, n-1){
+// 		foE(u, 1, n){
+// 			fo(j, 0, adj[u].size){
+// 				int v = adj[u][j].v;
+// 				int w = adj[u][j].w;
+// 				d[v] = min(d[v], w + d[u]);
+// 			}
+// 		}
+// 	}
+// }
 
 int main(){
 	faster

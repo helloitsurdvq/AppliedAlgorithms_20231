@@ -13,16 +13,18 @@ using namespace std;
 #define faster ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 int main(){
-    faster
-    int t; cin >> t;
-    while(t--){
-        ll n; cin >> n;
-        ll a[n], res = 0;
-        vector<ll> dp(100001, 0);
-        for(int i = 0; i < n; i++) cin >> a[i];
-        for(int i = 0; i < n; i++)
-            dp[a[i]] = dp[a[i] - 1] + 1;
-        cout << *max_element(dp.begin(), dp.end()) << endl;
+    faster;
+    ll n, m; cin >> n >> m;
+    ll x = max(m, n), y = min(m, n);
+    ll ans = 1;
+    for(ll i = 1; i < 1e5; i++){
+        if(i % 2 == 1){
+            if(x < i*i/2 + 1 || y < i*i/2) break;
+        } else{
+            if(x < i*i/2 || y < i*i/2) break;
+        }
+        ans = i;
     }
+    cout << ans;
     return 0;
 }

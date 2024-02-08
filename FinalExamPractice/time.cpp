@@ -12,17 +12,14 @@ using namespace std;
 #define rall(a) a.rbegin(), a.rend()
 #define faster ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
+int time(string s){
+    int timeS = stoi(s.substr(6, 2)) + 60 * stoi(s.substr(3, 2)) + 3600 * stoi(s.substr(0, 2));
+    return timeS;
+}
+
 int main(){
     faster
-    int t; cin >> t;
-    while(t--){
-        ll n; cin >> n;
-        ll a[n], res = 0;
-        vector<ll> dp(100001, 0);
-        for(int i = 0; i < n; i++) cin >> a[i];
-        for(int i = 0; i < n; i++)
-            dp[a[i]] = dp[a[i] - 1] + 1;
-        cout << *max_element(dp.begin(), dp.end()) << endl;
-    }
+    string s; cin >> s;
+    cout << time(s);
     return 0;
 }
